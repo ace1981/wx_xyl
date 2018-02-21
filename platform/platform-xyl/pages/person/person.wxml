@@ -1,0 +1,45 @@
+<scroll-view class="container" scroll-y="true">
+  <view wx:if="{{!openAttr}}">
+    <swiper class="goodsimgs" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+      <swiper-item wx:for="{{gallery}}" wx:key="{{item.id}}">
+        <image src="{{item.img_url}}" background-size="cover"></image>
+      </swiper-item>
+    </swiper>   
+   
+    <view class="common-problem">
+      <view class="h">
+        <view class="line"></view>
+        <text class="title">班级同学录</text>
+      </view>
+      <view class="b">
+        <view class="item" wx:for="{{issueList}}" wx:key="{{item.id}}">
+          <view class="question-box">
+            <text class="spot"></text>
+            <text class="question">{{item.question}}</text>
+          </view>
+          <view class="answer">
+            {{item.answer}}
+          </view>
+        </view>
+      </view>
+    </view>
+
+   
+
+  </view>
+  
+  <view class="bottom-btn">
+    <view class="l l-collect {{ openAttr ? 'back' : ''}}" bindtap="closeAttrOrCollect">
+      <image class="icon" src="{{ collectBackImage }}"></image>
+    </view>
+    <view class="l l-cart">
+      <view class="box">
+        <text class="cart-count">{{cartGoodsCount}}</text>
+        <image bindtap="openCartPage" class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
+
+      </view>
+    </view>
+   
+    <view class="r" bindtap="addToCart"></view>
+  </view>
+</scroll-view>

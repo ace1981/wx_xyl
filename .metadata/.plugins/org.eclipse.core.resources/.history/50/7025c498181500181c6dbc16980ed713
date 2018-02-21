@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.platform.dao.UserDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.platform.entity.SchoolEntity" id="schoolMap">
+        <result property="ID" column="id"/>
+        <result property="class_name" column="class_name"/>
+        <result property="creator_id" column="creator_id"/>
+        <result property="create_time" column="create_time"/>
+        <result property="monitor_id" column="monitor_id"/>
+        <result property="class_desc" column="class_desc"/>
+        <result property="invite_code" column="invite_code"/>
+        <result property="school_name" column="school_name"/>
+        <result property="school_pic" column="school_pic"/>
+        <result property="school_desc" column="school_desc"/>
+       
+    </resultMap>
+
+    <select id="queryObject" resultMap="userMap">
+		select * from xyl_user where id = #{value}
+	</select>
+
+    <select id="queryByOpenId" resultMap="userMap">
+        select * from xyl_user
+        where 1 = 1
+        <if test="openId != null">
+            and `weixin_openid` = #{openId}
+        </if>
+    </select>
+
+    <select id="queryList" resultMap="userMap">
+        select * from xyl_user
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+            <otherwise>
+                order by id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryTotal" resultType="int">
+		select count(*) from xyl_user 
+	</select>
+
+    <insert id="save" parameterType="com.platform.entity.UserEntity" useGeneratedKeys="true" keyProperty="id">
+		insert into xyl_user
+		(
+			`username`, 
+			`password`, 
+			`sex`, 
+			`birthday`, 
+			`register_time`, 
+			`last_login_time`, 
+			`last_login_ip`, 
+			`user_level_id`, 
+			`nickname`, 
+			`mobile`, 			
+			`register_ip`, 
+			`company`, 
+			`avatar`,
+			`weixin_openid`,
+			`weixin_unionid`	
+			
+		)
+		values
+		(
+			#{username}, 
+			#{sex}, 
+			#{birthday}, 
+			#{register_time},
+			#{last_login_time},
+			#{last_login_ip},
+			#{user_level_id},
+			#{nickname},
+			#{mobile},
+			#{register_ip},
+			#{company},
+			#{avatar},
+			#{weixin_openid},
+			#{weixin_unionid},
+		)
+	</insert>
+
+    <update id="update" parameterType="com.platform.entity.UserEntity">
+        update xyl_user
+        <set>
+            <if test="username != null">`username` = #{username},</if>
+            <if test="password != null">`password` = #{password},</if>
+            <if test="sex != null">`sex` = #{sex},</if>
+            <if test="birthday != null">`birthday` = #{birthday},</if>
+            <if test="register_time != null">`register_time` = #{register_time},</if>
+            <if test="last_login_time != null">`last_login_time` = #{last_login_time},</if>
+            <if test="last_login_ip != null">`last_login_ip` = #{last_login_ip},</if>
+            <if test="user_level_id != null">`user_level_id` = #{user_level_id},</if>
+            <if test="nickname != null">`nickname` = #{nickname},</if>
+            <if test="mobile != null">`mobile` = #{mobile},</if>
+            <if test="register_ip != null">`register_ip` = #{register_ip},</if>
+            <if test="company != null">`company` = #{company},</if>
+            <if test="avatar != null">`avatar` = #{avatar},</if>
+            <if test="weixin_openid != null">`weixin_openid` = #{weixin_openid}</if>
+            <if test="weixin_unionid != null">`weixin_unionid` = #{weixin_unionid},</if>
+        </set>
+        where id = #{userId}
+    </update>
+
+   
+</mapper>

@@ -1,0 +1,47 @@
+<view class="container">    
+  <view class="search-header">
+    <view class="input-box">
+      <image class="icon" src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/search2-2fb94833aa.png"></image>
+      <input name="input" class="keywrod" focus="true" value="{{keyword}}" confirm-type="search" bindinput="inputChange" bindfocus="inputFocus" bindconfirm="onKeywordConfirm" confirm-type="search" placeholder="{{defaultKeyword.keyword}}" />
+      <image class="del" wx:if="{{keyword}}" bindtap="clearKeyword" src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/clearIpt-f71b83e3c2.png"></image>
+      
+    </view>
+    <view class="right" bindtap="closeSearch">取消</view>
+  </view>
+    <scroll-view scroll-y="true" >
+
+    <view class="cate-item">
+        <view class="h">
+            <text class="name">{{currentClass.name}}</text>
+            <text class="desc">{{currentClass.front_name}}</text>
+        </view>
+       
+    </view>
+
+    <view class='person_page_container2'>      
+        <block wx:if = "{{!! personsList}}">
+          <view class='person_items2' data-info='{{result}}' bindtap='toPersonDetail' wx:for="{{personsList}}" wx:for-item="result" wx:key="{{result.id}}">
+            <image mode="aspectFill" src='{{result.list_pic_url}}'></image>
+            <view class='person_items2_view1'>
+              
+              <view>
+                <text>{{result.name}}</text>
+                <text class='price'>电话：{{result.telephone}}</text>
+                  
+              </view>
+               <text class='font2'>单位： {{result.company}}</text>
+              <text class='font2'>地址： {{result.city}}</text>
+            </view>
+            
+          </view>
+        </block>
+
+        <block wx:else>
+          <view class="noperson">
+            <image mode="widthFix" src='/images/icons/no-product.png'></image>
+            <text>没有相关同学</text>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+</view>

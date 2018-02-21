@@ -1,0 +1,6 @@
+#Tomcat publish data
+#Tue Feb 20 00:18:19 CST 2018
+org.eclipse.jst.jee.server\:/binary\:D\:\\WorkSpace\\JavaStore\\org\\springframework\\spring-web\\4.3.7.RELEASE\\spring-web-4.3.7.RELEASE.jar=WEB-INF/lib/spring-web-4.3.7.RELEASE.jar
+org.eclipse.jst.j2ee.server\:platform-api=WEB-INF/lib/platform-api-1.0.0.jar
+org.eclipse.jst.j2ee.server\:platform-common=WEB-INF/lib/platform-common-1.0.0.jar
+org.eclipse.jst.j2ee.server\:platform-shiro=WEB-INF/lib/platform-shiro-1.0.0.jar
