@@ -1,4 +1,4 @@
-package com.platform.api;
+package com.platform.rest;
 
 import com.platform.annotation.IgnoreAuth;
 import com.platform.annotation.LoginUser;
@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/user")
-public class ApiUserController extends ApiBaseAction {
+public class UserController extends ApiBaseAction {
     @Autowired
     private UserService userService;
 

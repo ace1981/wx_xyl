@@ -1,4 +1,4 @@
-package com.platform.api;
+package com.platform.rest;
 
 import com.platform.annotation.IgnoreAuth;
 import com.platform.dto.Result;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/school")
-public class ApiSchoolController extends ApiBaseAction {
+@RequestMapping("/api/class")
+public class ClassController extends ApiBaseAction {
     @Autowired
     private UserService userService;
     
