@@ -3,7 +3,7 @@ package com.platform.dto;
 import lombok.Data;
 
 @Data
-public class SchoolDto {
+public class ClassDto {
 
 	private String name;
 	

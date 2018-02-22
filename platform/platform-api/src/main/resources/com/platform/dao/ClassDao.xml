@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.platform.dao.SchoolDao">
+<mapper namespace="com.platform.dao.ClassDao">
 
     <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.platform.entity.SchoolEntity" id="schoolMap">
-        <result property="ID" column="classid"/>
+    <resultMap type="com.platform.entity.ClassEntity" id="classMap">
+        <result property="ID" column="id"/>
         <result property="class_name" column="class_name"/>
         <result property="creator_id" column="creator_id"/>
         <result property="create_time" column="create_time"/>
         <result property="monitor_id" column="monitor_id"/>
         <result property="class_desc" column="class_desc"/>
         <result property="invite_code" column="invite_code"/>
-        <result property="school_name" column="school_name"/>
-        <result property="school_pic" column="school_pic"/>
-        <result property="school_desc" column="school_desc"/>       
+        <result property="class_pic" column="class_pic"/>
     </resultMap>
 
-    <select id="queryObject" resultMap="schoolMap">
-		select * from xyl_school_class where id = #{value}
+    <select id="queryObject" resultMap="classMap">
+		select * from xyl_class where id = #{value}
 	</select>
 
   
