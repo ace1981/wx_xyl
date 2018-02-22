@@ -3,7 +3,7 @@ package com.platform.api;
 import com.platform.annotation.IgnoreAuth;
 import com.platform.annotation.LoginUser;
 import com.platform.dto.Result;
-import com.platform.dto.SchoolDto;
+import com.platform.dto.ClassDto;
 import com.platform.entity.UserEntity;
 import com.platform.service.UserService;
 import com.platform.util.ApiBaseAction;

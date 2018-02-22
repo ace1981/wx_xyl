@@ -68,13 +68,13 @@
         </dependency>
 
         <!-- 阿里短信 -->
-        <dependency>
+  <!--       <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>alisms</artifactId>
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/alisms-1.0.jar</systemPath>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>dom4j</groupId>

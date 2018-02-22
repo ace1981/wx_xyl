@@ -2,7 +2,7 @@ package com.platform.api;
 
 import com.platform.annotation.IgnoreAuth;
 import com.platform.dto.Result;
-import com.platform.dto.SchoolDto;
+import com.platform.dto.ClassDto;
 import com.platform.service.UserService;
 import com.platform.util.ApiBaseAction;
 import io.swagger.annotations.ApiOperation;
@@ -25,7 +25,7 @@ public class ApiSchoolController extends ApiBaseAction {
     @ApiOperation(value = "根据用户ID获取用户所对应的学校清单", httpMethod = "GET", response = Result.class, notes = "获取学校列表数据")
     public Result getSchoolList(){
     	Result result = new Result();
-    	SchoolDto sd = new SchoolDto();
+    	ClassDto sd = new ClassDto();
     	sd.setId("111");
     	result.setData(sd);
     	return result;
